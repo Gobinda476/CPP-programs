@@ -1,14 +1,12 @@
 #include<iostream>
 using namespace std;
-int main(){
-    int n;
-    cout<<"Enter the number : ";
-    cin>>n;
-    int fact = 1;
-    for(int i = 1;i<=n;i++){
-        fact = fact * i;
+void factUpto(int n){
+    int f = 1;
+    for(int i=1;i<=n;i++){
+        f*=i;
+        cout<<f<<endl;
     }
-    cout<<"Factorial of the number is : "<<fact<<endl;
-
-    return 0;
+}
+int main(){
+    factUpto(5);
 }

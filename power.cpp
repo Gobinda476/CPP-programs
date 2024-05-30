@@ -1,26 +1,18 @@
 #include<iostream>
 using namespace std;
-int main(){
-    int a,b;
-    cout<<"Enter base : ";
-    cin>>a;
-    cout<<"Enter exponent : ";
-    cin>>b;
-    bool flag = true; //true means power positive.
-    if(b<0){
-        flag=false; //false means power negative.
-        b=-b;
-    }
-    float power = 1;
-    for(int i = 1;i<=b;i++){
-        power = power * a;
-    }
-    if(flag==false){
-        power = 1/power;
-        b=-b;
-    }
-    if(a==0 && b==0) cout<<"Not Defined";
-    else cout<<a<<" raised to the power "<<b<<" is "<<power;
 
-    return 0;
+int power(int a,int b){
+    if(a==0 && b==0){
+        cout<<"0 raised to the power 0 is not defined";
+        return -100;
+    }
+    if(a==0) return 0;
+    int p=1;
+    for(int i=1;i<=b;i++){
+        p*=a;
+    }
+    return p;
+}
+int main(){
+    cout<<power(2,10)<<endl;
 }

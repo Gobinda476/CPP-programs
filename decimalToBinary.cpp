@@ -1,24 +1,23 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int decimalNumber;
-    cout << "Enter a decimal number: ";
-    cin >> decimalNumber;
-    
-    int binaryNumber[32]; // Assuming 32-bit integer
-    int i = 0;
-    while (decimalNumber > 0) {
-        binaryNumber[i] = decimalNumber % 2;
-        decimalNumber /= 2;
-        i++;
+string decimal_to_binary(int num){
+    string result = "";
+    while(num>0){
+        if(num%2==0){
+            //even
+            result = "0" + result;
+        }
+        else{
+            //odd
+            result = "1" + result;
+        }
+        num = num / 2;
     }
-    
-    cout << "Binary equivalent: ";
-    for (int j = i - 1; j >= 0; j--) {
-        cout << binaryNumber[j];
-    }
-    cout << endl;
-
+    return result;
+}
+int main(){
+    int num = 12;
+    cout<<decimal_to_binary(num)<<endl;
     return 0;
 }

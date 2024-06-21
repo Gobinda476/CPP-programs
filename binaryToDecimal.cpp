@@ -1,20 +1,18 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int main(){
-    int n;
-    cout<<"Enter size of array :";
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    int sum=0;
-    int x=1;
-    for(int i=n-1;i>=0;i--){
-        sum+=arr[i]*x;
-        x*=2;
-    }
-    cout<<"The equivalent decimal number of the given binary number is : "<<sum<<endl;
 
+int binary_to_decimal(string &binary){
+    int n = binary.size();
+    int result = 0;
+    for(int i=n-1;i>=0;i--){
+        char ch = binary[i];
+        int num = ch - '0';
+        result = result + num * (1 << (n-i-1)); // 1<<x -> pow(2,x)
+    }
+    return result;
+}
+int main(){
+    string binary = "00001011";
+    cout<<binary_to_decimal(binary)<<endl;
     return 0;
 }
